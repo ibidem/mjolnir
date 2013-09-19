@@ -1,0 +1,18 @@
+#
+# This file describes the location information for the mjolnir application.
+#
+# In your server configuration file add the following:
+#
+#	include /path/to/this/file;
+#
+# Please change `location /` accordingly if the application is not on the root
+# of the domain. You may write rewrites but the main index.php file will
+# redirect the request to thumbs/, media/ etc on its own if the request is sent
+# to the main index.php file.
+#
+
+location /some_folder {
+	try_files $uri $uri/ /some_folder/index.php;
+}
+
+# remove "some_folder" if you're on the root of the domain

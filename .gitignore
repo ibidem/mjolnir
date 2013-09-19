@@ -1,0 +1,99 @@
+# Ignore project specific files
+# -----------------------------
+/etc/logs/*
+/etc/cache/*
+/etc/tmp/*
+
+
+# Ignore context specific files
+# -----------------------------
+/.key.path
+/.www.path
+/.www.url
+
+
+# Ignore development helpers
+# -----------------------------
+/reload
+/reload.*
+/cron.*
+
+
+# Ignore composer files
+# -----------------------------
+/vendor/*
+/bin/composer.phar
+/etc/composer.lock
+/composer.lock
+
+# Ignore generated manual files
+# -----------------------------
+/manual.html
+/manual.pdf
+
+
+# Ignore Eclipse project files
+# -----------------------------
+.settings/
+.project
+.buildpath
+
+
+# Ignore Netbeans project files
+# -----------------------------
+nbproject
+
+
+# Ignore editor and OS files
+# -----------------------------
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+
+
+# Ignore Dreamweaver files
+# -----------------------------
+_notes
+dwsync.xml
+
+
+# Ignore Komodo files
+# -----------------------------
+*.komodoproject
+.komodotools
+
+
+# Ignore misc temporary files
+# -----------------------------
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+*.sublime-project
+*.sublime-workspace
+
+
+# Ignore misc & vcs directories
+# -----------------------------
+.hg
+.svn
+.CVS
+intermediate
+publish
+.idea
+
+
+# Ignore build files
+# -----------------------------
+build/buildinfo.properties
+build/config/buildinfo.properties

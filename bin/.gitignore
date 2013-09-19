@@ -1,0 +1,8 @@
+# ignore everything
+*
+
+# ...except these files
+!.gitignore
+!vendor/install
+!vendor/update
+!vendor/status

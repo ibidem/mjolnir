@@ -1,0 +1,16 @@
+echo ''
+echo ' Regenerating Sphinx '
+echo '-------------------------------------------'
+./order db:sphinx --regenerate
+
+echo ''
+echo ''
+echo ' Stopping Sphinx  '
+echo '-------------------------------------------'
+searchd --stop --config etc/tmp/sphinx.conf.mj
+
+echo ''
+echo ''
+echo ' Regenerating indexes ' 
+echo '-------------------------------------------'
+indexer --config etc/tmp/sphinx.conf.mj --all

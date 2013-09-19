@@ -1,0 +1,1 @@
+indexer --config etc/tmp/sphinx.conf.mj --all --rotate

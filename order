@@ -1,0 +1,65 @@
+#!/usr/bin/env php
+<?php namespace app;
+
+	\defined('EXT') or \define('EXT', '.php');
+
+	# Setup
+	# -------------------------------------------------------------------------
+
+	// load www.path
+	if (\file_exists(\realpath(__DIR__).'/.www.path'))
+	{
+		$wwwpath = \trim(\file_get_contents(\realpath(__DIR__).'/.www.path'), "\n\r ");
+		$wwwconfig = include $wwwpath.'config'.EXT;
+	}
+	else # failed to find .www.path
+	{
+		echo PHP_EOL
+			.' Missing .www.path file in '.__DIR__.PHP_EOL
+			.' Do: echo "path/to/www" > .www.path'.PHP_EOL;
+	}
+
+	
+	# Load Environment
+	# -------------------------------------------------------------------------
+	require_once \realpath(__DIR__).'/etc/mjolnir.php';
+
+	
+	# Key path
+	# -------------------------------------------------------------------------
+	
+	! isset($wwwpath) or Env::ensure('www.path', $wwwpath);
+	! isset($wwwconfig) or Env::ensure('www.config', $wwwconfig);
+	
+	// load key.path
+	if (\file_exists(Env::key('sys.path').'.key.path'))
+	{
+		$keypath = \trim(\file_get_contents(Env::key('sys.path').'.key.path'), "\n\r ");
+		CFS::frontpaths([ $keypath ]);
+		Env::ensure('key.path', $keypath);
+	}
+	else # failed to find .key.path
+	{
+		if (isset($wwwpath) && \file_exists($wwwpath.'config'.EXT))
+		{
+			$wwwconfig = include $wwwpath.'config'.EXT;
+			if ($wwwconfig['key.path'] === null)
+			{
+				echo PHP_EOL
+					.' Missing .key.path file in '.__DIR__.PHP_EOL
+					.' Do: echo "path/to/keys" > .key.path'.PHP_EOL;
+			}
+
+			CFS::frontpaths([ $wwwconfig['key.path'] ]);
+		}
+		else # could not find www config
+		{
+			echo PHP_EOL
+				.' Missing .key.path file in '.__DIR__.PHP_EOL
+				.' Do: echo "path/to/keys" > .key.path'.PHP_EOL;
+		}
+	}
+
+	# Execute using overlord stack
+	# -------------------------------------------------------------------------
+	\app\Mjolnir::overlord();

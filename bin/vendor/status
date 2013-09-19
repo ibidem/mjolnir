@@ -1,0 +1,3 @@
+#!/bin/sh
+php bin/composer.phar show --installed --working-dir=.
+php bin/composer.phar status --verbose --working-dir=.

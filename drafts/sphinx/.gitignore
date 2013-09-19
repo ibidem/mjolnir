@@ -1,0 +1,6 @@
+# sphinx configuration files are generated automatically and may contain 
+# password derived from the current system private files so all configuration 
+# files are ignored. To avoid confusion, generated files will have a .conf.mj
+# extention
+
+*.conf.mj
