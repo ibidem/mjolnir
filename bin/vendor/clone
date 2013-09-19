@@ -9,7 +9,7 @@ else
 	echo "The vendor/ directory appears to have already been removed."
 fi
 
-if [ -f file ]; then
+if [ -f composer.lock ]; then
 	rm composer.lock
 else
 	echo "No composer.lock found. Assuming fresh composer install."
