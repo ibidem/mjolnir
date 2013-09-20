@@ -121,9 +121,10 @@
 		// every other scenario or undefined behaviour may happen
 		'error-reporting' => -1,
 
-		// when locked, migration system will only allow safe operations such
-		// as installing/reseting ONLY IF it doesn't require overwrites, or
-		// inspecting, upgrading, etc
+		// when locked, migration systems will only allow safe operations such
+		// as installing (reseting ONLY if it doesn't require overwrites),
+		// inspecting, upgrading, etc. Any operation that involves data loss
+		// will be rejected
 		'db:lock' => true,
 
 	); # config
