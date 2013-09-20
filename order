@@ -19,18 +19,19 @@
 			.' Do: echo "path/to/www" > .www.path'.PHP_EOL;
 	}
 
-	
+
 	# Load Environment
 	# -------------------------------------------------------------------------
 	require_once \realpath(__DIR__).'/etc/mjolnir.php';
+	\app\Env::ensure('console-mode', true);
 
-	
+
 	# Key path
 	# -------------------------------------------------------------------------
-	
+
 	! isset($wwwpath) or Env::ensure('www.path', $wwwpath);
 	! isset($wwwconfig) or Env::ensure('www.config', $wwwconfig);
-	
+
 	// load key.path
 	if (\file_exists(Env::key('sys.path').'.key.path'))
 	{
