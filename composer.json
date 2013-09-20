@@ -12,6 +12,7 @@
 
 		"mjolnir/cfs"        : "dev-liquid/2.x",
 		"mjolnir/base"       : "dev-liquid/2.x",
+		"mjolnir/accounting" : "dev-liquid/2.x",
 		"mjolnir/foundation" : "dev-liquid/2.x",
 		"mjolnir/html"       : "dev-liquid/2.x",
 		"mjolnir/access"     : "dev-liquid/2.x",

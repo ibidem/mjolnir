@@ -6,6 +6,8 @@
 			(
 				// project modules
 
+				$modpath.'core' => 'ibidem\core',
+
 			// ---- Plugins ---------------------------------------------------
 
 				// no plugins
@@ -20,6 +22,7 @@
 
 				// mjolnir modules
 				$vdrpath.'mjolnir/access'     => 'mjolnir\access',
+				$vdrpath.'mjolnir/accounting' => 'mjolnir\accounting',
 				$vdrpath.'mjolnir/base'       => 'mjolnir\base',
 				$vdrpath.'mjolnir/foundation' => 'mjolnir\foundation',
 				$vdrpath.'mjolnir/html'       => 'mjolnir\html',
@@ -43,7 +46,7 @@
 				// explicit themes; themes can also just be embeded in modules,
 				// in which case there's no need for them to appear here.
 
-//				'demo-theme' => $syspath.'themes/the-demo/',
+				'arpeggio' => $syspath.'themes/arpeggio/',
 			),
 
 	); # config

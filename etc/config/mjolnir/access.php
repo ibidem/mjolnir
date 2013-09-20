@@ -19,7 +19,13 @@
 			 * create basic protocols for common access requirements.
 			 */
 
-			// empty
+			'+common' => array
+				(
+					Allow::relays
+						(
+							'frontend.public'
+						),
+				),
 		),
 
 	'blacklist' => array # disallow! (no matter what)
