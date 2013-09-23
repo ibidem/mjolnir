@@ -98,7 +98,6 @@
 	<? function ibidem_theme_taccount_li($entry) { ?>
 		<li>
 			<strong><?= $entry['title'] ?></strong>
-			<? var_dump($entry); die ?>
 			<? foreach ($entry['subtaccounts'] as $taccount): ?>
 				<? ibidem_theme_taccount_li($taccount) ?>
 			<? endforeach; ?>
