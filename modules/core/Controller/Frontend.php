@@ -18,7 +18,25 @@ class Controller_Frontend extends \app\Controller_Base
 	{
 		return \app\ThemeView::fortarget('frontend')
 			->pass('control', $this)
-			->pass('context', $this);
+			->pass('context', $this)
+			->pass('errors', []);
+	}
+
+	/**
+	 * @return \mjolnir\types\Renderable
+	 */
+	function public_add_taccount()
+	{
+		$errors = [];
+
+		if (\app\Server::request_method() == 'POST')
+		{
+			$input_errors = \app\AcctgTAccountLib::push($_POST);
+			$input_errors === null or $errors = ['add_taccount' => $input_errors];
+		}
+
+		return $this->public_index()
+			->pass('errors', $errors);
 	}
 
 	/**

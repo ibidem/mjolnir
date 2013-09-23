@@ -1,7 +1,7 @@
 <?php return array
 	(
 
-		'/'
-			=> [ 'frontend.public' ],
+		'/(<action>)'
+			=> [ 'frontend.public', ['action' => '(add-taccount)'] ],
 
 	);

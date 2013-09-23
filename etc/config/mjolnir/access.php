@@ -24,7 +24,8 @@
 					Allow::relays
 						(
 							'frontend.public'
-						),
+						)
+						->unrestricted(),
 				),
 		),
 
