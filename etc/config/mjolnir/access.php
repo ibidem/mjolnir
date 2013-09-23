@@ -23,7 +23,9 @@
 				(
 					Allow::relays
 						(
-							'frontend.public'
+							'frontend.public',
+						# acctg module
+							'taccount.public'
 						)
 						->unrestricted(),
 				),
