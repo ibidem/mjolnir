@@ -1,4 +1,4 @@
-<?php namespace ibidem\core;
+<?php namespace ibidem\demos\acctg\core;
 
 /**
  * @package    ibidem

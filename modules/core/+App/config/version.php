@@ -1,6 +1,6 @@
 <?php return array
 	(
-		'ibidem\core' => array
+		'ibidem\demos\acctg\core' => array
 			(
 				'major' => '1',
 				'minor' => '0',
