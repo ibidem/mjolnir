@@ -25,19 +25,52 @@ class Controller_Frontend extends \app\Controller_Base
 	/**
 	 * @return \mjolnir\types\Renderable
 	 */
-	function public_add_taccount()
+	function public_bruteforce_taccount()
 	{
+		$action = $this->actionkey();
 		$errors = [];
 
 		if (\app\Server::request_method() == 'POST')
 		{
 			$input_errors = \app\AcctgTAccountLib::push($_POST);
-			$input_errors === null or $errors = ['add_taccount' => $input_errors];
+			$input_errors === null or $errors = [$action => $input_errors];
 		}
 
 		return $this->public_index()
 			->pass('errors', $errors);
 	}
+
+	/**
+	 * @return \mjolnir\types\Renderable
+	 */
+	function public_add_taccount()
+	{
+		$action = $this->actionkey();
+		$errors = [];
+
+		if (\app\Server::request_method() == 'POST')
+		{
+			$input_errors = \app\AcctgTAccountLib::tree_push($_POST);
+			$input_errors === null or $errors = [$action => $input_errors];
+		}
+
+		return $this->public_index()
+			->pass('errors', $errors);
+	}
+
+	// ------------------------------------------------------------------------
+	// Helpers
+
+	/**
+	 * @return string
+	 */
+	function actionkey()
+	{
+		return $this->channel()->get('relaynode')->get('action', 'index');
+	}
+
+	// ------------------------------------------------------------------------
+	// Context
 
 	/**
 	 * @return string action url
