@@ -68,7 +68,7 @@ class Task_Reload_Testdata extends \app\Task_Base
 			\app\AcctgTAccountLib::process($taccount);
 		}
 
-		$this->writer->writef(' Testdata loaded.')->eol();
+		$this->writer->writef(' Test TAccounts loaded in.')->eol();
 	}
 
 } # class

@@ -27,17 +27,7 @@ class Controller_Frontend extends \app\Controller_Base
 	 */
 	function public_bruteforce_taccount()
 	{
-		$action = $this->actionkey();
-		$errors = [];
-
-		if (\app\Server::request_method() == 'POST')
-		{
-			$input_errors = \app\AcctgTAccountLib::push($_POST);
-			$input_errors === null or $errors = [$action => $input_errors];
-		}
-
-		return $this->public_index()
-			->pass('errors', $errors);
+		return $this->perform_action('push');
 	}
 
 	/**
@@ -45,21 +35,54 @@ class Controller_Frontend extends \app\Controller_Base
 	 */
 	function public_add_taccount()
 	{
-		$action = $this->actionkey();
+		return $this->perform_action('tree_push');
+	}
+
+	/**
+	 * @return \mjolnir\types\Renderable
+	 */
+	function public_move_taccount()
+	{
+		return $this->perform_action('tree_move');
+	}
+
+	// ------------------------------------------------------------------------
+	// Helpers
+
+	/**
+	 * @param \mjolnir\types\Renderable
+	 */
+	protected function perform_action($process, $handler = null)
+	{
 		$errors = [];
 
-		if (\app\Server::request_method() == 'POST')
+		if ($this->is_input_request())
 		{
-			$input_errors = \app\AcctgTAccountLib::tree_push($_POST);
-			$input_errors === null or $errors = [$action => $input_errors];
+			$handler !== null or $handler = '\app\AcctgTAccountLib';
+			$input_errors = $handler::$process($_POST);
+			
+			if ($input_errors === null)
+			{
+				\app\Server::redirect($this->action(null));
+			}
+			else # got errors
+			{
+				$action = $this->actionkey();
+				$errors = [$action => $input_errors];
+			}
 		}
 
 		return $this->public_index()
 			->pass('errors', $errors);
 	}
 
-	// ------------------------------------------------------------------------
-	// Helpers
+	/**
+	 * @return boolean
+	 */
+	function is_input_request()
+	{
+		return \app\Server::request_method() == 'POST';
+	}
 
 	/**
 	 * @return string

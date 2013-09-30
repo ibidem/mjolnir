@@ -67,6 +67,22 @@
 		Create TAccount
 	</button>
 
+<h3>Move TAccount</h3>
+
+	<?= $f = HTML::form($control->action('move-taccount'), 'mjolnir:twitter')
+		->errors_are($errors['move-taccount'])?>
+
+	<?= $f->select('TAccount', 'taccount')
+		->options_logical($context->acctgtaccounts_options_hierarchy(null, null, null, '- select account -')) ?>
+
+	<?= $f->select('New Parent TAccount', 'new_parent')
+		->options_logical($context->acctgtaccounts_options_hierarchy())
+		->render() ?>
+
+	<button class="btn" type="submit" <?= $f->mark() ?>>
+		Move TAccount
+	</button>
+
 <h3>Raw TAccount View</h3>
 
 	<table>

@@ -1,5 +1,5 @@
 <?php return array
 	(
-		'reload:testdata' => [ 'description' => [ 'reload testdata' ] ]
+		'reload:testdata' => [ 'description' => [ 'load in sample TAccounts' ] ]
 
 	); # config

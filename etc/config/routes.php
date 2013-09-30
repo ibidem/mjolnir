@@ -2,7 +2,7 @@
 	(
 
 		'/(<action>)'
-			=> [ 'frontend.public', ['action' => '(bruteforce-taccount|add-taccount)'] ],
+			=> [ 'frontend.public', ['action' => '(bruteforce-taccount|add-taccount|move-taccount)'] ],
 
 	# ---- acctg module -------------------------------------------------------
 
