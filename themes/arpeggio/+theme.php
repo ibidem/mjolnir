@@ -15,8 +15,16 @@
 			(
 				'frontend' => array
 					(
-						'acctg-example',
+						'acctg-index',
 					),
+
+				'taccount' => array
+					(
+						'acctg-taccount',
+					),
+
+			# ---- Errors -----------------------------------------------------
+
 				'exception-Unknown' => array
 					(
 						'errors/unknown',

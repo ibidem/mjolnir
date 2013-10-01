@@ -2,11 +2,11 @@
 	(
 
 		'/(<action>)'
-			=> [ 'frontend.public', ['action' => '(bruteforce-taccount|add-taccount|move-taccount)'] ],
+			=> [ 'frontend.public', ['action' => '(add-taccount|move-taccount)'] ],
 
 	# ---- acctg module -------------------------------------------------------
 
 		'/taccount/<id>(/<action>)'
-			=> [ 'taccount.public', ['action' => '(delete|remove)'] ],
+			=> [ 'taccount.public', ['action' => '(update|remove)'] ],
 
 	); # config

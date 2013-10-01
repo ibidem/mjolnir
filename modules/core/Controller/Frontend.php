@@ -9,26 +9,8 @@
  */
 class Controller_Frontend extends \app\Controller_Base
 {
+	use \app\Trait_Controller_IbidemDemosAcctgCore;
 	use \app\Trait_AcctgContext;
-
-	/**
-	 * @return \mjolnir\types\Renderable
-	 */
-	function public_index()
-	{
-		return \app\ThemeView::fortarget('frontend')
-			->pass('control', $this)
-			->pass('context', $this)
-			->pass('errors', []);
-	}
-
-	/**
-	 * @return \mjolnir\types\Renderable
-	 */
-	function public_bruteforce_taccount()
-	{
-		return $this->perform_action('push');
-	}
 
 	/**
 	 * @return \mjolnir\types\Renderable
@@ -60,7 +42,7 @@ class Controller_Frontend extends \app\Controller_Base
 		{
 			$handler !== null or $handler = '\app\AcctgTAccountLib';
 			$input_errors = $handler::$process($_POST);
-			
+
 			if ($input_errors === null)
 			{
 				\app\Server::redirect($this->action(null));
@@ -74,33 +56,6 @@ class Controller_Frontend extends \app\Controller_Base
 
 		return $this->public_index()
 			->pass('errors', $errors);
-	}
-
-	/**
-	 * @return boolean
-	 */
-	function is_input_request()
-	{
-		return \app\Server::request_method() == 'POST';
-	}
-
-	/**
-	 * @return string
-	 */
-	function actionkey()
-	{
-		return $this->channel()->get('relaynode')->get('action', 'index');
-	}
-
-	// ------------------------------------------------------------------------
-	// Context
-
-	/**
-	 * @return string action url
-	 */
-	function action($action)
-	{
-		return \app\URL::href('frontend.public', ['action' => $action]);
 	}
 
 } # class

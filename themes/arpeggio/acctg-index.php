@@ -29,22 +29,6 @@
 
 <h2>TAccounts</h2>
 
-<h3>Bruteforce TAccount</h3>
-
-	<?= $f = HTML::form($control->action('bruteforce-taccount'), 'mjolnir:twitter')
-		->errors_are($errors['bruteforce-taccount']) ?>
-
-	<?= $f->select('TAccount Type', 'type')
-		->optgroups_array($context->acctgtypes_optgroups()) ?>
-
-	<?= $f->text('Title', 'title') ?>
-	<?= $f->text('Nested Set Left Index', 'lft') ?>
-	<?= $f->text('Nested Set Right Index', 'rgt') ?>
-
-	<button class="btn" type="submit" <?= $f->mark() ?>>
-		Create TAccount
-	</button>
-
 <h3>Add TAccount</h3>
 
 	<?= $f = HTML::form($control->action('add-taccount'), 'mjolnir:twitter')
@@ -112,6 +96,13 @@
 						<td><?= $taccount['depth'] ?></td>
 						<td><?= $taccount['sign'] == -1 ? 'yes' : 'no' ?></td>
 						<td>
+
+							<? if ($taccount['can']('update')): ?>
+								<a class="btn" href="<?= $taccount['action']('update') ?>">
+									Update
+								</a>
+							<? endif; ?>
+
 							<? if ($taccount['can']('remove')): ?>
 								<?= $f = HTML::form($taccount['action']('remove'), 'mjolnir:inline') ?>
 								<?= $f->hidden('id')->value_is($taccount['id']) ?>
@@ -119,6 +110,7 @@
 									Remove
 								</button>
 							<? endif; ?>
+
 						</td>
 					</tr>
 				<? endforeach; ?>
