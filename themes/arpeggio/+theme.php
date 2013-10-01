@@ -5,7 +5,7 @@
 		// configure theme drivers
 		'loaders' => array
 			(
-				'style' => ['default.style' => 'allegro'],
+				'style' => ['default.style' => 'spiritus'],
 				'javascript' => null,
 				'bootstrap' => null,
 			),
