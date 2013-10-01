@@ -112,11 +112,11 @@
 						<td><?= $taccount['depth'] ?></td>
 						<td><?= $taccount['sign'] == -1 ? 'yes' : 'no' ?></td>
 						<td>
-							<? if (Access::can('taccount.public', ['action' => 'delete'])): ?>
-								<?= $f = HTML::form($taccount['action']('delete'), 'mjolnir:inline') ?>
+							<? if ($taccount['can']('remove')): ?>
+								<?= $f = HTML::form($taccount['action']('remove'), 'mjolnir:inline') ?>
 								<?= $f->hidden('id')->value_is($taccount['id']) ?>
 								<button type="submit" <?= $f->mark() ?>>
-									Delete
+									Remove
 								</button>
 							<? endif; ?>
 						</td>

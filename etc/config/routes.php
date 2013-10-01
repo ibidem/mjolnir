@@ -7,6 +7,6 @@
 	# ---- acctg module -------------------------------------------------------
 
 		'/taccount/<id>(/<action>)'
-			=> [ 'taccount.public', ['action' => '(delete)'] ],
+			=> [ 'taccount.public', ['action' => '(delete|remove)'] ],
 
 	); # config
