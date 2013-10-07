@@ -1,0 +1,6 @@
+# build process may require extra tools to be downloaded, temporary files or
+# various other junk; any scripts should use bin/tmp for this. Configuration
+# files should be placed directly in bin or variations such as bin/etc,
+# bin/settings, etc
+*
+!.gitignore

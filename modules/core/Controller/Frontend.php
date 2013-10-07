@@ -9,53 +9,6 @@
  */
 class Controller_Frontend extends \app\Controller_Base
 {
-	use \app\Trait_Controller_IbidemDemosAcctgCore;
-	use \app\Trait_AcctgContext;
-
-	/**
-	 * @return \mjolnir\types\Renderable
-	 */
-	function public_add_taccount()
-	{
-		return $this->perform_action('tree_push');
-	}
-
-	/**
-	 * @return \mjolnir\types\Renderable
-	 */
-	function public_move_taccount()
-	{
-		return $this->perform_action('tree_move');
-	}
-
-	// ------------------------------------------------------------------------
-	// Helpers
-
-	/**
-	 * @param \mjolnir\types\Renderable
-	 */
-	protected function perform_action($process, $handler = null)
-	{
-		$errors = [];
-
-		if ($this->is_input_request())
-		{
-			$handler !== null or $handler = '\app\AcctgTAccountLib';
-			$input_errors = $handler::$process($_POST);
-
-			if ($input_errors === null)
-			{
-				\app\Server::redirect($this->action(null));
-			}
-			else # got errors
-			{
-				$action = $this->actionkey();
-				$errors = [$action => $input_errors];
-			}
-		}
-
-		return $this->public_index()
-			->pass('errors', $errors);
-	}
+	use \app\Trait_Controller_IbidemDemosAcctgEntry;
 
 } # class

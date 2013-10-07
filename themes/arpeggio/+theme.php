@@ -5,22 +5,93 @@
 		// configure theme drivers
 		'loaders' => array
 			(
+				'bootstrap' => null,
 				'style' => ['default.style' => 'spiritus'],
 				'javascript' => null,
-				'bootstrap' => null,
 			),
 
 		// target-to-file mapping
 		'mapping' => array
 			(
-				'frontend' => array
+				'frontend.index' => array
 					(
-						'acctg-index',
+						'base/foundation',
+						'index',
 					),
 
-				'taccount' => array
+			# TAccounts
+
+				'acctg-taccounts.index' => array
 					(
-						'acctg-taccount',
+						'base/foundation',
+						'acctg/taccount/index',
+					),
+
+				'acctg-taccounts.add' => array
+					(
+						'base/foundation',
+						'acctg/taccount/add',
+					),
+
+				'acctg-taccounts.move' => array
+					(
+						'base/foundation',
+						'acctg/taccount/move',
+					),
+
+				'acctg-taccount.index' => array
+					(
+						'base/foundation',
+						'acctg/taccount/entry',
+					),
+
+				'acctg-taccount.edit' => array
+					(
+						'base/foundation',
+						'acctg/taccount/edit',
+					),
+
+			# Journals
+
+				'acctg-journals.index' => array
+					(
+						'base/foundation',
+						'acctg/journal/index',
+					),
+
+				'acctg-journals.add' => array
+					(
+						'base/foundation',
+						'acctg/journal/add',
+					),
+
+				'acctg-journal.index' => array
+					(
+						'base/foundation',
+						'acctg/journal/entry',
+					),
+
+				'acctg-journal.edit' => array
+					(
+						'base/foundation',
+						'acctg/journal/edit',
+					),
+
+			# Transactions
+
+				'acctg-journal.add-transactions' => array
+					(
+						'base/foundation',
+						[
+							'templates',
+							'acctg/transaction/add',
+						]
+					),
+
+				'acctg-transaction.index' => array
+					(
+						'base/foundation',
+						'acctg/transaction/entry',
 					),
 
 			# ---- Errors -----------------------------------------------------
@@ -29,6 +100,27 @@
 					(
 						'errors/unknown',
 					),
+
+				'exception-NotImplemented' => array
+					(
+						'errors/not-implemented',
+					),
+
+				'exception-NotFound' => array
+					(
+						'errors/not-found',
+					),
+
+				'exception-NotAllowed' => array
+					(
+						'errors/not-allowed',
+					),
+
+				'exception-NotApplicable' => array
+					(
+						'errors/not-applicable',
+					),
+			
 			),
 
 	); # config

@@ -3,13 +3,13 @@
 		'version' => '1.0.0',
 		'sources' => 'src/',
 		'root' => 'root/',
-		'mode' => 'targeted',
+		'mode' => 'complete',
 
 	# Complete mode
 
 		'complete-mapping' => array
 			(
-				// empty
+				'vendor/bootstrap',
 			),
 
 	# Targeted mode
@@ -21,7 +21,19 @@
 
 		'targeted-mapping' => array
 			(
-				// empty
+
+			# ---- Errors -----------------------------------------------------
+
+				'+error' => array
+					(
+						// empty, just inherit common
+					),
+
+				'exception-Unknown'        => '+error',
+				'exception-NotImplemented' => '+error',
+				'exception-NotFound'       => '+error',
+				'exception-NotAllowed'     => '+error',
+				'exception-NotApplicable'  => '+error',
 			),
 
 	); # config

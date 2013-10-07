@@ -15,60 +15,59 @@ class Task_Reload_Testdata extends \app\Task_Base
 	function run()
 	{
 		\app\Task::consolewriter($this->writer);
-		$taccounts = array
-			(
-				[
-					'title' => 'ING',
-					'lft' => 1,
-					'rgt' => 10
-				],
-				[
-					'title' => '2x13',
-					'lft' => 2,
-					'rgt' => 7
-				],
-				[
-					'title' => 'AX',
-					'lft' => 3,
-					'rgt' => 4
-				],
-				[
-					'title' => 'EX',
-					'lft' => 5,
-					'rgt' => 6
-				],
-				[
-					'title' => '2x14',
-					'lft' => 8,
-					'rgt' => 9
-				],
-				[
-					'title' => 'BRD',
-					'lft' => 11,
-					'rgt' => 12
-				],
-				[
-					'title' => 'Masters',
-					'lft' => 13,
-					'rgt' => 16
-				],
-				[
-					'title' => 'X1',
-					'lft' => 14,
-					'rgt' => 15
-				],
-			);
 
-		$banktype = \app\AcctgTAccountTypeLib::find_entry(['slugid' => 'bank']);
+		$taccounts = \app\CFS::config('ibidem/acctg/demo.taccounts');
 
-		foreach ($taccounts as $taccount)
+		$typemap = \app\AcctgTAccountTypeLib::typemap();
+
+		foreach ($taccounts as $type => $typetaccounts)
 		{
-			$taccount['sign'] = +1;
-			$taccount['type'] = $banktype['id'];
-			\app\AcctgTAccountLib::process($taccount);
+			foreach ($typetaccounts as $key => $taccount)
+			{
+				if (\is_array($taccount))
+				{
+					$this->add_taccount($typemap[$type], $key, null, $taccount);
+				}
+				else # no sub accounts
+				{
+					$this->add_taccount($typemap[$type], $taccount, null, null);
+				}
+			}
 		}
 
 		$this->writer->writef(' Test TAccounts loaded in.')->eol();
+	}
+
+	/**
+	 * ...
+	 */
+	function add_taccount($type, $title, $parent = null, $subaccounts = null)
+	{
+		$input = array
+			(
+				'title' => $title,
+				'sign' => +1,
+				'type' => $type,
+				'parent' => $parent,
+			);
+
+		\app\AcctgTAccountLib::tree_push($input);
+		$id = \app\AcctgTAccountLib::last_inserted_id();
+
+		if ( ! empty($subaccounts))
+		{
+			foreach ($subaccounts as $key => $taccount)
+			{
+				if (\is_array($taccount))
+				{
+					$this->add_taccount($type, $key, $id, $taccount);
+				}
+				else # no sub accounts
+				{
+					$this->add_taccount($type, $taccount, $id, null);
+				}
+			}
+		}
 	}
 
 } # class

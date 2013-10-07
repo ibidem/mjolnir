@@ -25,7 +25,15 @@
 						(
 							'frontend.public',
 						# acctg module
-							'taccount.public'
+							'acctg-taccounts.public',
+							'acctg-taccount.public',
+							'acctg-journals.public',
+							'acctg-journal.public',
+							'acctg-transactions.public',
+							'acctg-transaction.public',
+							# --API--------------------------------------------
+							'v1-acctg-transactions.api',
+							'v1-acctg-transaction.api'
 						)
 						->unrestricted(),
 				),
