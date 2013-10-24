@@ -1,8 +1,8 @@
 <?
 	namespace app;
 
-	/* @var $context Controller_TAccounts */
-	/* @var $control Controller_TAccounts */
+	/* @var $context Controller_AcctgTAccounts */
+	/* @var $control Controller_AcctgTAccounts */
 	/* @var $errors  array */
 	/* @var $theme   ThemeView */
 	/* @var $lang    Lang */
@@ -11,145 +11,130 @@
 	$h2 = HH::raise($h1);
 ?>
 
+<<?= $h1 ?>>TAccounts</<?= $h1 ?>>
+
+<hr/>
+
 <div class="row-fluid">
 
 	<div class="col-md-8">
-		<<?= $h1 ?>>TAccounts</<?= $h1 ?>>
-
-		<<?= $h2 ?>>Raw TAccount View</<?= $h2 ?>>
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>type</th>
-					<th>account</th>
-					<th>lft</th>
-					<th>rgt</th>
-					<th>depth</th>
-					<th>contra acct?</th>
-					<th>&nbsp;</th>
-				</tr>
-			</thead>
-			<tbody>
-				<? $taccounts = $context->acctgtaccounts() ?>
-				<? if ( ! empty($taccounts)): ?>
-					<? $typesmap = $context->acctgtypesmap(); ?>
-					<? foreach ($taccounts as $taccount): ?>
-						<tr>
-							<td><?= $taccount['id'] ?></td>
-							<td><?= $typesmap[$taccount['type']]['title'] ?></td>
-							<td>
-								<strong>
-									<a href="<?= $taccount['action'](null) ?>">
-										<?= $taccount['title'] ?>
-									</a>
-								</strong>
-							</td>
-							<td><?= $taccount['lft'] ?></td>
-							<td><?= $taccount['rgt'] ?></td>
-							<td><?= $taccount['depth'] ?></td>
-							<td><?= $taccount['sign'] == -1 ? 'yes' : 'no' ?></td>
-							<td>
-
-								<? if ($taccount['can']('edit')): ?>
-									<a class="btn btn-default" href="<?= $taccount['action']('edit') ?>">
-										Edit
-									</a>
-								<? endif; ?>
-
-								<? if ($taccount['can']('remove')): ?>
-									<?= $f = HTML::form($taccount['action']('remove'), 'mjolnir:inline') ?>
-									<?= $f->hidden('id')->value_is($taccount['id']) ?>
-									<button type="submit" class="btn btn-warning" <?= $f->mark() ?>>
-										Remove
-									</button>
-								<? endif; ?>
-
-							</td>
-						</tr>
-					<? endforeach; ?>
-				<? else: # empty taccounts ?>
-					<tr><td colspan="5"><em>No TAccounts available.</em></td></tr>
-				<? endif; ?>
-			</tbody>
-		</table>
-
-		<<?= $h2 ?>>Hierarchical Listing</<?= $h2 ?>>
 
 		<?
 		#
-		# It should be noted that true hierarchies aren't always necesary if you
-		# just need the accounts to show indented in you would just multiply a
-		# padding or &nbsp; by the depth to obtain the desired effect.
+		# It should be noted that true hierarchies aren't always necesary if
+		# you just need the accounts to show indented in you would just
+		# multiply a padding or &nbsp; by the depth to obtain the
+		# desired effect.
 		#
-		# For all the other cases where you nead true hierarchies...
+		# For all the other cases where you just nead true hierarchies...
 		#
 		?>
 
-		<? function ibidem_theme_taccount_li($taccount) { ?>
-			<li>
-				<strong>
-					<a href="<?= $taccount['action'](null) ?>">
-						<?= $taccount['title'] ?>
-					</a>
-				</strong>
-				<? if ( ! empty($taccount['subtaccounts'])): ?>
-					<ul>
-						<? foreach ($taccount['subtaccounts'] as $taccount): ?>
-							<? ibidem_theme_taccount_li($taccount) ?>
-						<? endforeach; ?>
-					</ul>
-				<? endif; ?>
-			</li>
+		<? function ibidem_theme_taccount_li($entry, $level) { ?>
+			<? if ($entry['entrytype'] == 'taccount'): ?>
+				<li class="acctg-coa--taccount lvl-<?= $level ?>">
+					<span class="acctg-coa--taccount-wrapper">
+						<strong class="acctg-coa--taccount-title"><!--
+							--><a href="<?= $entry['action'](null) ?>"><!--
+								--><?= $entry['title'] ?><!--
+							--></a><!--
+						--></strong>
+
+						<span class="acctg-coa--taccount-controls">
+
+							&nbsp; |
+
+							<? if ($entry['can']('edit')): ?>
+								<a class="btn-link btn-xs" href="<?= $entry['action']('edit') ?>">Edit</a>
+							<? endif; ?>
+
+							<? if ($entry['can']('remove')): ?>
+								<?= $f = HTML::form($entry['action']('remove'), 'mjolnir:inline') ?>
+								<?= $f->hidden('id')->value_is($entry['id']) ?>
+								<button type="submit" class="btn-link btn-xs" <?= $f->mark() ?>>Remove</button>
+							<? endif; ?>
+
+						</span>
+					</span>
+
+					<? if ( ! empty($entry['subentries'])): ?>
+						<ul class="acctg-coa--subentries">
+							<? foreach ($entry['subentries'] as $subentry): ?>
+								<? ibidem_theme_taccount_li($subentry, $level + 1) ?>
+							<? endforeach; ?>
+						</ul>
+					<? endif; ?>
+				</li>
+			<? elseif ($entry['entrytype'] == 'taccount-type'): ?>
+				<li class="acctg-coa--taccount-type lvl-<?= $level ?>">
+					<em class="acctg-coa--taccount-type-title"><?= $entry['title'] ?></em>
+					<? if ( ! empty($entry['subentries'])): ?>
+						<ul class="acctg-coa--subtypes">
+							<? foreach ($entry['subentries'] as $subentry): ?>
+								<? ibidem_theme_taccount_li($subentry, $level + 1) ?>
+							<? endforeach; ?>
+						</ul>
+					<? endif; ?>
+					<? if ( ! empty($entry['taccounts'])): ?>
+						<ul class="acctg-coa--taccounts">
+							<? foreach ($entry['taccounts'] as $subentry): ?>
+								<? ibidem_theme_taccount_li($subentry, $level + 1) ?>
+							<? endforeach; ?>
+						</ul>
+					<? endif; ?>
+				</li>
+			<? else: # unknown type ?>
+				<? throw new \app\Exception('Unknown entry type.') ?>
+			<? endif; ?>
 		<? } # endfunction ?>
 
-		<ul>
-			<? foreach ($context->acctgtaccounts_hierarchy() as $taccount): ?>
-				<? ibidem_theme_taccount_li($taccount) ?>
-			<? endforeach; ?>
-		</ul>
+		<? $accts = $context->acctgtaccounts_hierarchy() ?>
 
-		<<?= $h2 ?>>Leaf TAccounts</<?= $h2 ?>>
-
-		<p>ie. the usable accounts</p>
-
-		<? $leafs = $context->acctgtaccounts_leafs() ?>
-		<? if ( ! empty($leafs)): ?>
-			<ul>
-				<? foreach ($leafs as $leaftaccount): ?>
-					<li>
-						<a href="<?= $taccount['action'](null) ?>">
-							<?= $leaftaccount['title'] ?>
-						</a>
-					</li>
+		<? if (\count($accts) > 0): ?>
+			<ul class="acctg-coa">
+				<? foreach ($accts as $taccount): ?>
+					<? ibidem_theme_taccount_li($taccount, 0) ?>
 				<? endforeach; ?>
 			</ul>
-		<? else: # blank state ?>
-			<p><em>No leaf accounts</em></p>
+		<? else: # no accounts ?>
+			<p>There are currently no accounts on the system.</p>
 		<? endif; ?>
+
 	</div>
 
 	<div class="col-md-4">
 
-		<<?= $h1 ?>>TAccount Types</<?= $h1 ?>>
+		<<?= $h2 ?>>TAccount Types</<?= $h2 ?>>
 
 		<table class="table">
 			<thead>
 				<tr>
 					<th>type</th>
-					<th>count</th>
+					<th>accounts</th>
 				</tr>
 			</thead>
 			<tbody>
 				<? foreach ($context->acctgtypes() as $type): ?>
 					<tr>
-						<th><?= $type['title'] ?></th>
-						<td><?= $type['taccountcount'] ?></td>
+						<td><?= \str_repeat(' &nbsp; &nbsp; ', $type['depth']).$type['title'] ?></td>
+						<td>
+							<? if ($type['usable']): ?>
+								<?= $type['taccountcount'] ?>
+							<? endif; ?>
+						</td>
 					</tr>
 				<? endforeach; ?>
 			</tbody>
 		</table>
+
+		<hr/>
+
+		<p>
+			<em>
+				The above types may not be changed and are used to resolve formulas that involve accounts.
+				Please ensure all accounts are in the correct account type, or computational errors will occur.
+			</em>
+		</p>
 
 	</div>
 

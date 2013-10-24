@@ -19,6 +19,56 @@
 						'index',
 					),
 
+			# Demo
+
+				'transaction-log.index' => array
+					(
+						'base/foundation',
+						'acctg/transaction/log',
+					),
+
+				'demo-assets.index' => array
+					(
+						'base/foundation',
+						'assets/index',
+					),
+
+				'demo-assets-inventory.index' => array
+					(
+						'base/foundation',
+						'assets/inventory/index',
+					),
+
+				'demo-entities.index' => array
+					(
+						'base/foundation',
+						'entities/index',
+					),
+
+				'demo-entities-vendors.index' => array
+					(
+						'base/foundation',
+						'entities/vendors/index',
+					),
+
+				'demo-entities-customers.index' => array
+					(
+						'base/foundation',
+						'entities/customers/index',
+					),
+
+				'demo-entities-employees.index' => array
+					(
+						'base/foundation',
+						'entities/employees/index',
+					),
+
+				'acctg-settings.index' => array
+					(
+						'base/foundation',
+						'acctg/settings',
+					),
+
 			# TAccounts
 
 				'acctg-taccounts.index' => array
@@ -82,16 +132,95 @@
 				'acctg-journal.add-transactions' => array
 					(
 						'base/foundation',
-						[
-							'templates',
-							'acctg/transaction/add',
-						]
+						'acctg/transaction/add',
 					),
 
 				'acctg-transaction.index' => array
 					(
 						'base/foundation',
 						'acctg/transaction/entry',
+					),
+
+			# Procedures
+
+				'acctg-procedures.index' => array
+					(
+						'base/foundation',
+						'acctg/procedures/index',
+					),
+
+				'acctg-procedures-check.index' => array
+					(
+						'base/foundation',
+						'acctg/procedures/check',
+					),
+
+				'acctg-procedures-transfer.index' => array
+					(
+						'base/foundation',
+						'acctg/procedures/transfer',
+					),
+
+				'acctg-procedures-transfer.record' => array
+					(
+						'base/foundation',
+						'acctg/procedures/transfer',
+					),
+
+				'acctg-procedures-deposit.index' => array
+					(
+						'base/foundation',
+						'acctg/procedures/deposit',
+					),
+
+				'acctg-procedures-invoice.index' => array
+					(
+						'base/foundation',
+						'acctg/procedures/invoice',
+					),
+
+				'acctg-procedures-invoice-payment.index' => array
+					(
+						'base/foundation',
+						'acctg/procedures/invoice-payment',
+					),
+
+			# Reports
+
+				'acctg-reports.index' => array
+					(
+						'base/foundation',
+						'acctg/reports/index',
+					),
+
+				'acctg-reports-balance-sheet.index' => array
+					(
+						'base/foundation',
+						'acctg/reports/statements/balance-sheet',
+					),
+
+				'acctg-reports-cash-flow-statement.index' => array
+					(
+						'base/foundation',
+						'acctg/reports/statements/cash-flow-statement',
+					),
+
+				'acctg-reports-income-statement.index' => array
+					(
+						'base/foundation',
+						'acctg/reports/statements/income-statement',
+					),
+
+				'acctg-reports-expenses-by-vendor.index' => array
+					(
+						'base/foundation',
+						'acctg/reports/expenses-by-vendor',
+					),
+
+				'acctg-reports-revenue-by-customer.index' => array
+					(
+						'base/foundation',
+						'acctg/reports/revenue-by-customer',
 					),
 
 			# ---- Errors -----------------------------------------------------
@@ -120,7 +249,7 @@
 					(
 						'errors/not-applicable',
 					),
-			
+
 			),
 
 	); # config

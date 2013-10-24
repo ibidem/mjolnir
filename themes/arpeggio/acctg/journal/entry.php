@@ -1,8 +1,8 @@
 <?
 	namespace app;
 
-	/* @var $context Controller_Journal */
-	/* @var $control Controller_Journal */
+	/* @var $context Controller_AcctgJournal */
+	/* @var $control Controller_AcctgJournal */
 	/* @var $errors  array */
 	/* @var $theme   ThemeView */
 	/* @var $lang    Lang */
@@ -17,7 +17,7 @@
 
 <hr/>
 
-<?= \app\View::instance('mjolnir/accounting/partials/journal-hierarchical-table')
+<?= View::instance('mjolnir/accounting/partials/journal-hierarchical-table')
 	->pass('context', $context)
 	->pass('journal', $journal)
 	->pass('records', $records)

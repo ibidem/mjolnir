@@ -1,8 +1,8 @@
 <?
 	namespace app;
 
-	/* @var $context Controller_Journals */
-	/* @var $control Controller_Journals */
+	/* @var $context Controller_AcctgJournals */
+	/* @var $control Controller_AcctgJournals */
 	/* @var $errors  array */
 	/* @var $theme   ThemeView */
 	/* @var $lang    Lang */

@@ -10,6 +10,7 @@
 		'complete-mapping' => array
 			(
 				'vendor/bootstrap',
+				'demo',
 			),
 
 	# Targeted mode

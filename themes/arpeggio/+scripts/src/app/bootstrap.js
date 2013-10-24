@@ -83,6 +83,15 @@ window.App = window.IbidemDemosAcctg; // alias
 	app.acctg = {};
 	app.acctg.Transaction = {};
 	app.acctg.TransactionOperation = {};
+	app.acctg.Check = {};
+	app.acctg.CheckExpense = {};
+	app.acctg.Deposit = {};
+	app.acctg.DepositPayment = {};
+	app.acctg.Invoice = {};
+	app.acctg.InvoicePayment = {};
+	app.acctg.InvoiceExpense = {};
+	app.acctg.Report = {};
+	app.acctg.ReportOptions = {};
 }(
 	window.App,
 	window.Backbone,

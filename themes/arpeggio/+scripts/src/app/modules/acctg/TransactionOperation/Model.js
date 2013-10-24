@@ -12,7 +12,8 @@
 			taccount: null,
 			amount_value: 0.00,
 			amount_type: 'USD',
-			type: 0 // ie. neither Dr nor Cr
+			type: 0, // ie. neither Dr nor Cr
+			note: ''
 		},
 
 		remove: function () {

@@ -12,23 +12,15 @@ trait Trait_Controller_IbidemDemosAcctgCollection
 	use Trait_Controller_IbidemDemosAcctgCommon;
 
 	/**
-	 * @return \mjolnir\types\Renderable
+	 * @return string
 	 */
-	function public_index()
+	function viewtarget()
 	{
-		return \app\ThemeView::fortarget
-			(
-				static::dashplural().'.'.$this->actionkey(),
-				$this->theme()
-			)
-			->pass('lang', $this->lang())
-			->pass('control', $this)
-			->pass('context', $this)
-			->pass('errors', []);
+		return static::dashplural();
 	}
 
-	// Context
 	// ------------------------------------------------------------------------
+	// Context
 
 	/**
 	 * @return string action url

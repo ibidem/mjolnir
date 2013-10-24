@@ -27,8 +27,8 @@ trait Trait_Controller_IbidemDemosAcctgEntry
 			->pass('errors', []);
 	}
 
-	// Context
 	// ------------------------------------------------------------------------
+	// Context
 
 	/**
 	 * @return string action url

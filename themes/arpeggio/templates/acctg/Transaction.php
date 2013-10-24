@@ -5,7 +5,6 @@
 	/* @var $lang  Lang */
 
 	$twbs = HTML::formfield('mjolnir:twbs3');
-	$line = HTML::formfield('mjolnir:inline');
 ?>
 
 <div class="form-horizontal" data-journal-id="<?= $context->journal_id() ?>">

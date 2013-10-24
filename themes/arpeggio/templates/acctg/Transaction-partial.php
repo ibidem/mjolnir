@@ -24,7 +24,7 @@
 %>
 
 <% if (inline_style) { %>
-	<?= \app\View::instance('mjolnir/accounting/partials/journal-inline-style')
+	<?= View::instance('mjolnir/accounting/partials/journal-inline-style')
 		->inherit($theme)
 		->render() ?>
 <% } /* endif */ %>

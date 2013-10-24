@@ -63,7 +63,14 @@ window.Mjolnir = {};
 
 	app.template = function (template) {
 		try {
-			return _.template($('#' + template + '-template').html());
+			var $template = $('#' + template + '-template');
+			if ($template.length != 0) {
+				return _.template($template.html());
+			}
+			else {
+				console.log('Missing template #' + template + '-template');
+				return null;
+			}
 		}
 		catch (e) {
 			console.log('failed to compile ' + template);

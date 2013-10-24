@@ -1,8 +1,8 @@
 <?
 	namespace app;
 
-	/* @var $context Controller_TAccount */
-	/* @var $control Controller_TAccount */
+	/* @var $context Controller_AcctgTAccount */
+	/* @var $control Controller_AcctgTAccount */
 	/* @var $errors  array */
 	/* @var $theme   ThemeView */
 	/* @var $lang    Lang */

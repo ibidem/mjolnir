@@ -1,1 +1,1 @@
-An errors has occured; it has been logged and will be dealt with as soon as possible.
+An error has occurred. The error has been logged and will be dealt with as soon as possible.

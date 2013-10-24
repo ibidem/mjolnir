@@ -7,20 +7,20 @@
  * @copyright  (c) 2013, Ibidem Team
  * @license    https://github.com/ibidem/ibidem/blob/master/LICENSE.md
  */
-class Controller_V1AcctgTransactions extends \app\Controller_Base_V1Api
+class Controller_V1AcctgProcedures_Checks extends \app\Controller_Base_V1Api
 {
 	/**
 	 * @return array
 	 */
 	function post($req)
 	{
-		$validator = \app\AcctgTransactionLib::integrity_validator($req);
+		$validator = \app\CheckLib::integrity_validator($req);
 
 		if ( ! $validator->check())
 		{
 			throw new \app\Exception_APIError
 				(
-					'Failed Transaction Validation',
+					'Failed Check Validation',
 					[
 						'error' => 'Failed validation',
 						'validation' => $validator->errors()
@@ -32,16 +32,17 @@ class Controller_V1AcctgTransactions extends \app\Controller_Base_V1Api
 		$db->begin();
 		try
 		{
-			$collection = \app\AcctgTransactionCollection::instance($db);
+			$transactions = \app\AcctgTransactionCollection::instance($db);
 
-			$transaction = $collection->post
+			$transaction = $transactions->post
 				(
 					[
-						'journal' => $req['journal'],
-						'description' => $req['description'],
+						'method' => \app\CheckLib::transaction_method(),
+						'journal' => \app\CheckLib::journal(),
+						'description' => 'Automatic transaction for check records.',
 						'date' => $req['date'],
 					# sign-off
-						'timestamp' => \date('Y-m-d'),
+						'timestamp' => \date('Y-m-d H:i:s'),
 						'user' => \app\Auth::id(),
 					]
 				);
@@ -53,11 +54,14 @@ class Controller_V1AcctgTransactions extends \app\Controller_Base_V1Api
 
 			$transaction['operations'] = [];
 
-			$collection = \app\AcctgTransactionOperationCollection::instance($db);
+			$operations = \app\AcctgTransactionOperationCollection::instance($db);
 
-			foreach ($req['operations'] as $req_op)
+			// convert to operations
+			$operations_array = \app\CheckLib::to_operations($req);
+
+			foreach ($operations_array as $req_op)
 			{
-				$operation = $collection->post
+				$operation = $operations->post
 					(
 						[
 							'transaction' => $transaction['id'],
@@ -79,6 +83,14 @@ class Controller_V1AcctgTransactions extends \app\Controller_Base_V1Api
 
 				$transaction['operations'][] = $operation;
 			}
+
+			\app\CheckLib::push
+				(
+					[
+						'transaction' => $transaction['id'],
+						'orderof' => $req['orderof']
+					]
+				);
 
 			$db->commit();
 		}

@@ -16,7 +16,7 @@ class Task_Reload_Testdata extends \app\Task_Base
 	{
 		\app\Task::consolewriter($this->writer);
 
-		$taccounts = \app\CFS::config('ibidem/acctg/demo.taccounts');
+		$taccounts = \app\CFS::config('ibidem/acctg/data/demo.taccounts');
 
 		$typemap = \app\AcctgTAccountTypeLib::typemap();
 
@@ -36,6 +36,42 @@ class Task_Reload_Testdata extends \app\Task_Base
 		}
 
 		$this->writer->writef(' Test TAccounts loaded in.')->eol();
+
+		$inventory = \app\CFS::config('ibidem/acctg/data/demo.inventory');
+
+		foreach ($inventory as $item)
+		{
+			\app\InventoryLib::push($item);
+		}
+
+		$this->writer->writef(' Test Inventory loaded in.')->eol();
+
+		$vendors = \app\CFS::config('ibidem/acctg/data/demo.vendors');
+
+		foreach ($vendors as $vendor)
+		{
+			\app\VendorLib::push($vendor);
+		}
+
+		$this->writer->writef(' Test Vendors loaded in.')->eol();
+
+		$customers = \app\CFS::config('ibidem/acctg/data/demo.customers');
+
+		foreach ($customers as $customer)
+		{
+			\app\CustomerLib::push($customer);
+		}
+
+		$this->writer->writef(' Test Customers loaded in.')->eol();
+
+		$employees = \app\CFS::config('ibidem/acctg/data/demo.employees');
+
+		foreach ($employees as $employee)
+		{
+			\app\EmployeeLib::push($employee);
+		}
+
+		$this->writer->writef(' Test Employees loaded in.')->eol();
 	}
 
 	/**

@@ -13,7 +13,7 @@
 		<?= $line->select(null, 'taccount')
 			->add('class', 'app-taccount')
 			->add('class', 'form-control')
-			->options_liefhierarchy($context->acctgtaccounts_options_liefhierarchy()) ?>
+			->options_logical($context->acctgtaccounts_options_liefs()) ?>
 	</td>
 	<td>
 		<input class="app-debit form-control" type="text" placeholder="0.00"/>

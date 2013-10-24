@@ -6,8 +6,9 @@
 			(
 				// project modules
 
-				$modpath.'api'  => 'ibidem\demos\acctg\api\v1',
-				$modpath.'core' => 'ibidem\demos\acctg\core',
+				$modpath.'api.v1'  => 'ibidem\demos\acctg\api\v1',
+				$modpath.'core'    => 'ibidem\demos\acctg\core',
+				$modpath.'mjolnir' => 'ibidem\demos\acctg\mjolnir',
 
 			// ---- Plugins ---------------------------------------------------
 

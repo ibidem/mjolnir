@@ -5,9 +5,9 @@
 	/* @var $lang  Lang */
 ?>
 
-<style>
+<style type="text/css">
 	body {
-		min-height: 2000px;
+		min-height: 1000px;
 		padding-top: 70px;
 	}
 </style>

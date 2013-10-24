@@ -1,8 +1,8 @@
 <?
 	namespace app;
 
-	/* @var $context Controller_TAccount */
-	/* @var $control Controller_TAccount */
+	/* @var $context Controller_AcctgTAccount */
+	/* @var $control Controller_AcctgTAccount */
 	/* @var $errors  array */
 	/* @var $theme   ThemeView */
 	/* @var $lang    Lang */
@@ -20,10 +20,11 @@
 		->errors_are($errors['add']) ?>
 
 	<?= $f->select('TAccount Type', 'type')
-		->optgroups_array($context->acctgtypes_optgroups()) ?>
+		->options_logical($context->acctgtypes_options_hierarchy())
+		->render() ?>
 
 	<?= $f->select('Parent TAccount', 'parent')
-		->options_logical($context->acctgtaccounts_options_hierarchy())
+		->options_logical($context->acctgtaccounts_options_hierarchy(null, null, null, '[ no parent account ]'))
 		->render() ?>
 
 	<?= $f->checkbox('Contra TAccount?', 'sign')
@@ -39,6 +40,5 @@
 			</button>
 		</div>
 	</div>
-
 
 </div>

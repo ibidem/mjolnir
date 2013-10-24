@@ -21,9 +21,20 @@
 
 			'+common' => array
 				(
+					// @todo move access rights to apropriate protocols and
+					// apropriate user template roles
+
 					Allow::relays
 						(
 							'frontend.public',
+						# demo
+							'demo-assets.public',
+							'demo-assets--inventory.public',
+							'demo-entities.public',
+							'demo-entities--customers.public',
+							'demo-entities--vendors.public',
+							'demo-entities--employees.public',
+							'transaction-log.public',
 						# acctg module
 							'acctg-taccounts.public',
 							'acctg-taccount.public',
@@ -31,9 +42,28 @@
 							'acctg-journal.public',
 							'acctg-transactions.public',
 							'acctg-transaction.public',
+							'acctg-procedures.public',
+							'acctg-procedures--check.public',
+							'acctg-procedures--transfer.public',
+							'acctg-procedures--deposit.public',
+							'acctg-procedures--invoice.public',
+							'acctg-procedures--invoice-payment.public',
+							'acctg-reports.public',
+							'acctg-reports--income-statement.public',
+							'acctg-reports--balance-sheet.public',
+							'acctg-reports--cash-flow-statement.public',
+							'acctg-reports--expenses-by-vendor.public',
+							'acctg-reports--revenue-by-customer.public',
+							'acctg-settings.public',
 							# --API--------------------------------------------
 							'v1-acctg-transactions.api',
-							'v1-acctg-transaction.api'
+							'v1-acctg-transaction.api',
+							'v1-acctg-procedures--checks.api',
+							'v1-acctg-procedures--check.api',
+							'v1-acctg-procedures--deposits.api',
+							'v1-acctg-procedures--deposit.api',
+							'v1-acctg-procedures--invoices.api',
+							'v1-acctg-procedures--invoice.api'
 						)
 						->unrestricted(),
 				),

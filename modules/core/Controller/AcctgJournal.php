@@ -73,14 +73,6 @@ class Controller_AcctgJournal extends \app\Controller_Base
 	// Context
 
 	/**
-	 * @return int
-	 */
-	function journal_id()
-	{
-		return (int) $this->entry()['id'];
-	}
-
-	/**
 	 * @return array
 	 */
 	function entry()

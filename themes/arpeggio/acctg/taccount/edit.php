@@ -1,8 +1,8 @@
 <?
 	namespace app;
 
-	/* @var $context Controller_TAccount */
-	/* @var $control Controller_TAccount */
+	/* @var $context Controller_AcctgTAccount */
+	/* @var $control Controller_AcctgTAccount */
 	/* @var $errors  array */
 	/* @var $theme   ThemeView */
 	/* @var $lang    Lang */
@@ -20,7 +20,7 @@
 <div class="form-horizontal">
 
 	<?= $f = HTML::form($control->action('edit'), 'mjolnir:twbs3')
-		->autocomplete($entry)
+		->autocomplete_array($entry)
 		->errors_are($errors['edit']) ?>
 
 	<?= $f->text('Title', 'title'); ?>

@@ -10,5 +10,6 @@
 class Controller_Frontend extends \app\Controller_Base
 {
 	use \app\Trait_Controller_IbidemDemosAcctgEntry;
+	use \app\Trait_AcctgContext;
 
 } # class
