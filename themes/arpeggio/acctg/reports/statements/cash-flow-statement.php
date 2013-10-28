@@ -7,7 +7,7 @@
 	/* @var $theme   ThemeView */
 	/* @var $lang    Lang */
 
-	echo '[placeholder]'; return;
+	echo '[disabled]'; return;
 
 	$report = $context->acctgreport_cashflowstatement($_GET);
 ?>

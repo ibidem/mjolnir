@@ -1,8 +1,5 @@
 <?php return array
 	(
-		'description'
-			=> 'Install for Check, Deposit, Invoice and Transfer.',
-
 		'configure' => array
 			(
 				'tables' => array

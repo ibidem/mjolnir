@@ -191,8 +191,8 @@ trait Trait_Controller_IbidemDemosAcctgCommon
 	{
 		$all_links = array
 			(
-				'demo-assets.public' => 'Assets',
-				'demo-entities.public' => 'Entities',
+//				'demo-assets.public' => 'Assets',
+//				'demo-entities.public' => 'Entities',
 				'acctg-taccounts.public' => 'TAccounts',
 				'acctg-journals.public' => 'Journals',
 				'acctg-procedures.public' => 'Procedures',
