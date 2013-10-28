@@ -1,5 +1,7 @@
 <?php return array
 	(
+		'description' => 'Install for main accounting processes.',
+	
 		'configure' => array
 			(
 				'tables' => array
