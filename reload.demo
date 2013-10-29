@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+order pdx:reset
+order reload:testdata
+order cleanup --cache-only
+order make:user -u admin -p adminadmin -r admin
