@@ -25,6 +25,10 @@
 		->add('class', 'app-check-amount')
 		->value_is('0.00') ?>
 
+	<?= $twbs3->textarea('Description', 'description')
+		->add('class', 'app-check-description')
+		->value_is('') ?>
+
 	<table class="table">
 		<thead>
 			<tr>

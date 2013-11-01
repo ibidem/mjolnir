@@ -12,7 +12,7 @@ class DepositLib
 	use \app\Trait_ModelLib;
 
 	/** @var string */
-	static $table = 'deposits';
+	static $table = 'acctg_ib__deposits';
 
 	#
 	# This class is used for demo-ing procedure integration

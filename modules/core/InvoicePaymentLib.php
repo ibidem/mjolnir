@@ -12,7 +12,7 @@ class InvoicePaymentLib
 	use \app\Trait_ModelLib;
 
 	/** @var string */
-	static $table = 'invoice_payments';
+	static $table = 'acctg_ib__invoice_payments';
 
 	#
 	# This class is used for demo-ing procedure integration

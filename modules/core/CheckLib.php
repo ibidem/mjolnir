@@ -12,7 +12,7 @@ class CheckLib
 	use \app\Trait_ModelLib;
 
 	/** @var string */
-	static $table = 'checks';
+	static $table = 'acctg_ib__checks';
 
 	#
 	# This class is used for demo-ing procedure integration.

@@ -1,19 +1,19 @@
 <?php namespace app;
 
     $packages = array
-        (
-            'packages/jquery',
-            'packages/jquery-ui-position',
-            'packages/json2',
-            'packages/underscore',
-            'packages/backbone',
-            'packages/supermodel',
-            'packages/moment',
-            'packages/big',
-            'packages/pusher.color',
-            'packages/accounting',
+		(
+			'packages/jquery',
+			'packages/jquery-ui-position',
+			'packages/json2',
+			'packages/underscore',
+			'packages/backbone',
+			'packages/supermodel',
+			'packages/moment',
+			'packages/big',
+			'packages/pusher.color',
+			'packages/accounting',
 #           'packages/money', // money conversion
-        );
+		);
 
     $mjolnir_required_widgets = array
         (

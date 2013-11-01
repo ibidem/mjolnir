@@ -105,6 +105,7 @@
 				amount_type: self.get('amount_type'),
 				amount_value: self.get('amount_value'),
 				orderof: self.get('orderof'),
+				description: self.get('description'),
 				expenses: []
 			};
 
@@ -216,6 +217,12 @@
 			self.$('.app-check-orderof')
 				.on('input'+ens, function () {
 					self.model.set('orderof', $(this).val());
+					self.model.save_integrity_check();
+				});
+
+			self.$('.app-check-description')
+				.on('input'+ens, function () {
+					self.model.set('description', $(this).val());
 					self.model.save_integrity_check();
 				});
 

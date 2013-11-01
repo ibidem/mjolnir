@@ -39,7 +39,7 @@ class Controller_V1AcctgProcedures_Checks extends \app\Controller_Base_V1Api
 					[
 						'method' => \app\CheckLib::transaction_method(),
 						'journal' => \app\CheckLib::journal(),
-						'description' => 'Automatic transaction for check records.',
+						'description' => $req['description'],
 						'date' => $req['date'],
 					# sign-off
 						'timestamp' => \date('Y-m-d H:i:s'),

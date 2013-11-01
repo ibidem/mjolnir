@@ -31,6 +31,14 @@ window.Mjolnir = {};
 	// current application windows
 	app.windows = [];
 
+	// http://en.wikipedia.org/wiki/Globally_unique_identifier
+	app.guid = function () {
+		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+			return v.toString(16);
+		});
+	};
+
 	// "no operation" shortcut
 	app.noop = function () { /* do nothing */ };
 

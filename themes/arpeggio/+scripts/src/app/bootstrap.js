@@ -28,6 +28,9 @@ window.App = window.IbidemDemosAcctg; // alias
 	// setup windows handler object
 	app.windows = mj.windows;
 
+	// globally unique identifier
+	app.guid = mj.guid;
+
 	// when_futures
 	app.when_futures = mj.when_futures;
 

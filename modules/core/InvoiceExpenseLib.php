@@ -12,7 +12,7 @@ class InvoiceExpenseLib
 	use \app\Trait_ModelLib;
 
 	/** @var string */
-	static $table = 'invoice_expenses';
+	static $table = 'acctg_ib__invoice_expenses';
 
 	#
 	# This class is used for demo-ing procedure integration

@@ -12,7 +12,7 @@ class TransferLib
 	use \app\Trait_ModelLib;
 
 	/** @var string */
-	static $table = 'transfers';
+	static $table = 'acctg_ib__transfers';
 
 	#
 	# This class is used for demo-ing procedure integration
