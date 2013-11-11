@@ -32,7 +32,7 @@ class TransferLib
 				),
 			'strs' => array
 				(
-					'note',
+					// empty
 				),
 			'bools' => array
 				(
@@ -71,7 +71,7 @@ class TransferLib
 				[
 					'method' => static::transaction_method(),
 					'journal' => static::journal(),
-					'description' => 'Automatic transaction for transfer records.',
+					'description' => $input['description'],
 					'date' => $input['date'],
 				# sign-off
 					'timestamp' => \date('Y-m-d H:i:s'),
@@ -130,7 +130,6 @@ class TransferLib
 		$transfer_input = array
 			(
 				'transaction' => $transaction['id'],
-				'note' => $input['note']
 			);
 
 		static::inserter

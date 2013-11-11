@@ -82,10 +82,9 @@ class Controller_AcctgSettings extends \app\Controller_Base
 	{
 		return $this->acctgtaccounts_options_hierarchy
 			(
-				[
-					'type' => $this->acctgtype('current-assets')
-				],
-				null, # default indent
+				[ $this->acctgtype('current-assets') ],
+				[],
+				null, # default indenter
 				null, # default accounts label
 				false # disable blank
 			);
@@ -98,10 +97,9 @@ class Controller_AcctgSettings extends \app\Controller_Base
 	{
 		return $this->acctgtaccounts_options_hierarchy
 			(
-				[
-					'type' => $this->acctgtype('revenue')
-				],
-				null, # default indent
+				[ $this->acctgtype('revenue') ],
+				[],
+				null, # default indenter
 				null, # default accounts label
 				false # disable blank
 			);
