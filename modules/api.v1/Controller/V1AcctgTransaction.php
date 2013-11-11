@@ -9,6 +9,6 @@
  */
 class Controller_V1AcctgTransaction extends \app\Controller_Base_V1Api
 {
-	
+	// empty
 
 } # class

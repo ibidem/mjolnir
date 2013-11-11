@@ -37,6 +37,7 @@ class Controller_V1AcctgTransactions extends \app\Controller_Base_V1Api
 			$transaction = $collection->post
 				(
 					[
+						'method' => 'manual',
 						'journal' => $req['journal'],
 						'description' => $req['description'],
 						'date' => $req['date'],

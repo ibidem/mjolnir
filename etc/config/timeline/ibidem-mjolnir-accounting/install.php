@@ -1,7 +1,7 @@
 <?php return array
 	(
 		'description' => 'Install for main accounting processes.',
-	
+
 		'configure' => array
 			(
 				'tables' => array
@@ -102,6 +102,12 @@
 					),
 			),
 
+		'populate' => function (\mjolnir\types\SQLDatabase $db)
+			{
+				\app\AcctgTAccountLib::install_taccounts(null, \app\CFS::config('ibidem/acctg/data/default.taccounts'));
+			},
+
+	/*
 		'populate' => function (\mjolnir\types\SQLDatabase $db)
 			{
 				$keyprefix = 'pdx:ibidem-demos-acctg-install-';
@@ -210,5 +216,6 @@
 						]
 					);
 			},
+	 */
 
 	); # config

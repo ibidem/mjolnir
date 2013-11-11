@@ -17,7 +17,7 @@
 	?>
 
 	<<?= $h1 ?>><?= $report->title() ?></<?= $h1 ?>>
-	<p><small>Generated <?= \date('M d, Y', $time).' at '.\date('H:i:s', $time) ?></small></p>
+	<p><small>Generated <?= $time->format('M d, Y').' at '.$time->format('H:i:s') ?></small></p>
 	<hr/>
 
 	<div class="app-reports-Report">

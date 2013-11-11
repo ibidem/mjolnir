@@ -31,6 +31,7 @@
 						'ibidem-mjolnir-accounting/install',
 						[
 							'mjolnir-accounting' => '1.0.0',
+							'ibidem-demos-acctg' => '1.0.0',
 						]
 					),
 			),
