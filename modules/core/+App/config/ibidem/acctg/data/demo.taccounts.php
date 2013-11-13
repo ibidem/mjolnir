@@ -5,37 +5,36 @@
 
 		'current-assets' => array
 			(
-//				'Accounts Receivable', # set internally
-				'Allowance for Doubtful Accounts',
-				'Inventory',
-				'Supplies',
-				'Prepaid Insurance'
+#				'accts-recv' => 'Accounts Receivable', # set internally
+				'doubtful-accounts' => 'Allowance for Doubtful Accounts',
+				'inventory' => 'Inventory',
+				'supplies' => 'Supplies',
+				'prepaid-insurance' => 'Prepaid Insurance'
 			),
 
 			'bank' => array
 				(
-					'ING Group',
-					'Petty Cash Fund',
+					'petty-cash' => 'Petty Cash Fund',
 				),
 
 			'cash' => array
 				(
-					'Cash',
+					'cash' => 'Cash',
 				),
 
 		'long-term-assets' => array
 			(
-				'Land',
-				'Buildings',
-				'Equipment',
-				'Vehicles',
+				'land' => 'Land',
+				'buildings' => 'Buildings',
+				'equipment' => 'Equipment',
+				'vehicles' => 'Vehicles',
 			),
 
 			'depreciation' => array
 				(
-					'Accumulated Depreciation - Buildings',
-					'Accumulated Depreciation - Equipment',
-					'Accumulated Depreciation - Vehicles',
+					'building-depreciation' => 'Accumulated Depreciation - Buildings',
+					'equipment-depreciation' => 'Accumulated Depreciation - Equipment',
+					'vehicle-depreciation' => 'Accumulated Depreciation - Vehicles',
 				),
 
 		// --------------------------------------------------------------------
@@ -43,58 +42,58 @@
 
 		'current-liabilities' => array
 			(
-				'General Notes Payable',
-				'Accounts Payable',
-				'Wages Payable',
-				'Interest Payable',
-				'Unearned Revenues'
+				'notes-payable' => 'General Notes Payable',
+				'accts-payable' => 'Accounts Payable',
+				'wages-payable' => 'Wages Payable',
+				'interest-payable' => 'Interest Payable',
+				'unearned-revenue' => 'Unearned Revenues'
 			),
 
 		'long-term-liabilities' => array
 			(
-				'Mortgage Loan Payable',
-				'Bonds Payable',
-				'Discount on Bonds Payable'
+				'mortgage-loan-payable' => 'Mortgage Loan Payable',
+				'bonds-payable' =>'Bonds Payable',
+				'discount-bonds-payable' =>'Discount on Bonds Payable'
 			),
 
 		'capital-stock' => array
 			(
-				'Common Stock, No Par',
-				'Treasury Stock'
+				'common-stock' => 'Common Stock, No Par',
+				'treasury-stock' => 'Treasury Stock'
 			),
 
 			'retained-earnings' => array
 				(
-					'Retained Earnings',
+					'retained-earnings' => 'Retained Earnings',
 				),
 
 			'investments' => array
 				(
-					'Investments',
+					'investments' => 'Investments',
 				),
 
 			'withdraws' => array
 				(
-					'Withdraws',
+					'draws' => 'Withdraws',
 				),
 
 		'revenue' => array
 			(
-//				'General Revenue', # set internally
-				'General Sales'
+#				'general-revenue' => 'General Revenue', # set internally
+				'general-sales' => 'General Sales'
 			),
 
 		'general-expenses' => array
 			(
-				'Marketing',
-				'Salaries',
-				'Taxes',
-				'Supplies',
+				'marketing' => 'Marketing',
+				'salaries' => 'Salaries',
+				'taxes' => 'Taxes',
+				'supplies' => 'Supplies',
 			),
 
 		'depreciation-expenses' => array
 			(
-				'Depreciation Expense',
+				'depreciation-expense' => 'Depreciation Expense',
 			),
 
 	); # config
