@@ -39,6 +39,9 @@
 								--><?= $entry['title'] ?><!--
 							--></a><!--
 						--></strong>
+						<? if (empty($entry['subentries'])): ?>
+							&mdash; <?= \number_format($entry['balance'], 2) ?>
+						<? endif; ?>
 
 						<span class="acctg-coa--taccount-controls">
 
