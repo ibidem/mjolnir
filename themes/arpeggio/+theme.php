@@ -210,6 +210,12 @@
 						'acctg/reports/statements/cash-flow-statement',
 					),
 
+				'acctg-reports-owner-equity.index' => array
+					(
+						'base/foundation',
+						'acctg/reports/statements/owner-equity',
+					),
+
 				'acctg-reports-income-statement.index' => array
 					(
 						'base/foundation',

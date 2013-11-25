@@ -87,6 +87,9 @@ return array
 		'/reports/income-statement'
 			=> [ 'acctg-reports--income-statement.public' ],
 
+		'/reports/owner-equity'
+			=> [ 'acctg-reports--owner-equity.public' ],
+
 		'/reports/balance-sheet'
 			=> [ 'acctg-reports--balance-sheet.public' ],
 

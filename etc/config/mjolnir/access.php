@@ -21,8 +21,7 @@
 
 			'+common' => array
 				(
-					// @todo move access rights to apropriate protocols and
-					// apropriate user template roles
+					// @todo move access rights to apropriate protocols & roles
 
 					Allow::relays
 						(
@@ -51,6 +50,7 @@
 							'acctg-procedures--invoice-payment.public',
 							'acctg-reports.public',
 							'acctg-reports--income-statement.public',
+							'acctg-reports--owner-equity.public',
 							'acctg-reports--balance-sheet.public',
 							'acctg-reports--cash-flow-statement.public',
 							'acctg-reports--expenses-by-vendor.public',

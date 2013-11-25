@@ -1,11 +1,9 @@
-<?php namespace app;
-
-return Arr::merge
+<?php return \app\Arr::merge
 	(
 		[
 			'development' => true,
-			'key.path' => Env::key('key.path'),
+			'key.path' => \app\Env::key('key.path'),
 		],
-		Env::key('www.config', [])
+		\app\Env::key('www.config', [])
 		
 	); # special config

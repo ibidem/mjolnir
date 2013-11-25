@@ -52,6 +52,7 @@
 			}
 
 			CFS::frontpaths([ $wwwconfig['key.path'] ]);
+			Env::ensure('key.path', $wwwconfig['key.path']);
 		}
 		else # could not find www config
 		{
