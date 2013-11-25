@@ -14,6 +14,9 @@ return array
 		'/'
 			=> [ 'frontend.public' ],
 
+		'/testbench'
+			=> [ 'testbench.public' ],
+
 	# ---- demo ---------------------------------------------------------------
 
 		'/assets'

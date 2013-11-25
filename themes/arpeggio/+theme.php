@@ -19,6 +19,11 @@
 						'index',
 					),
 
+				'testbench.index' => array
+					(
+						'testbench',
+					),
+
 			# Demo
 
 				'transaction-log.index' => array

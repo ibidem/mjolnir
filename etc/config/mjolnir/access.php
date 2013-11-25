@@ -27,6 +27,7 @@
 					Allow::relays
 						(
 							'frontend.public',
+							'testbench.public',
 						# demo
 							'demo-assets.public',
 							'demo-assets--inventory.public',

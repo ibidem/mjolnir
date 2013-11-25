@@ -81,7 +81,17 @@ class Controller_V1AcctgTransactions extends \app\Controller_Base_V1Api
 				$transaction['operations'][] = $operation;
 			}
 
+			if (($error = \app\AcctgTAccountLib::check_integrity()) !== 0)
+			{
+				throw new \app\Exception_NotApplicable("System has detected inconsistency with required operation. Error delta of $error");
+			}
+
 			$db->commit();
+		}
+		catch (\app\Exception_NotApplicable $e)
+		{
+			$db->rollback();
+			throw new \app\Exception_APIError($e->getMessage());
 		}
 		catch (\Exception $e)
 		{
