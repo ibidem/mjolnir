@@ -62,7 +62,7 @@ class Controller_V1AcctgTransactions extends \app\Controller_Base_V1Api
 					(
 						[
 							'transaction' => $transaction['id'],
-							'type' => $req_op['type'],
+							'type' => $req_op['type'] * \app\AcctgTAccountLib::rootsign($req_op['taccount']) * \app\AcctgTAccountTypeLib::rootsign(\app\AcctgTAccountLib::entry($req_op['taccount'])['type']),
 							'taccount' => $req_op['taccount'],
 							'note' => $req_op['note'],
 							'amount' => array
@@ -81,7 +81,7 @@ class Controller_V1AcctgTransactions extends \app\Controller_Base_V1Api
 				$transaction['operations'][] = $operation;
 			}
 
-			if (($error = \app\AcctgTAccountLib::check_integrity()) !== 0)
+			if (($error = \app\AcctgTAccountLib::checksum()) != 0)
 			{
 				throw new \app\Exception_NotApplicable("System has detected inconsistency with required operation. Error delta of $error");
 			}
