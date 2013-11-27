@@ -193,6 +193,7 @@ return array
 				'acctg-reports-balance-sheet.index' => '+report',
 				'acctg-reports-income-statement.index' => '+report',
 				'acctg-reports-cash-flow-statement.index' => '+report',
+				'acctg-reports-owner-equity.index' => '+report',
 				'acctg-reports-expenses-by-vendor.index' => '+report',
 				'acctg-reports-expenses-by-customer.index' => '+report',
 

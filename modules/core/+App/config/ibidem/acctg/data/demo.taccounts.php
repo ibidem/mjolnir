@@ -72,9 +72,9 @@
 					'investments' => 'Investments',
 				),
 
-			'withdraws' => array
+			'withdrawals' => array
 				(
-					'draws' => 'Withdraws',
+					'withdrawals' => 'Withdrawals',
 				),
 
 		'revenue' => array
