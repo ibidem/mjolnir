@@ -8,6 +8,10 @@
 		// where are the system files located?
 		'sys.path' => null, # absolute path
 
+		// if you need a custom session save path specify it here; otherwise
+		// just leave it set as null to use the default PHP session save path
+		'session.path' => null, # where to save sessions
+
 		// are you in a development environment?
 		'development' => false,
 
